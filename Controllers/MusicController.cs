@@ -2,7 +2,8 @@ namespace Spotifried.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Spotifried.Models;
 
-public class MusicController : Controller{
+public class MusicController : Controller
+{
 
     public IActionResult Index()
     {
@@ -10,11 +11,6 @@ public class MusicController : Controller{
     }
 
     public IActionResult AddMusic()
-    {
-        return View();
-    }
-
-    public IActionResult RemoveMusic()
     {
         return View();
     }
