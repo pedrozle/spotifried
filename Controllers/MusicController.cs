@@ -29,6 +29,7 @@ public class MusicController(IMusicRepository musicRepository) : Controller
     [HttpPost]
     public IActionResult AddMusic(MusicModel music)
     {
+        if(!ModelState.IsValid) return View(music);
         _musicRepository.AddMusic(music);
         return RedirectToAction(nameof(Index));
     }

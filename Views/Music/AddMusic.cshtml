@@ -11,22 +11,27 @@
         <div class="mb-3">
             <label for="title" class="form-label">Título</label>
             <input type="text" asp-for="Title" class="form-control" id="title">
+            @Html.ValidationMessageFor(m => m.Title)
         </div>
         <div class="mb-3">
             <label for="album" class="form-label">Álbum</label>
             <input type="text" asp-for="Album" class="form-control" id="album">
+            @Html.ValidationMessageFor(m => m.Album)
         </div>
         <div class="mb-3">
             <label for="artist" class="form-label">Artista</label>
             <input type="text" asp-for="Artist" class="form-control" id="artist">
+            @Html.ValidationMessageFor(m => m.Artist)
         </div>
         <div class="mb-3">
             <label for="genre" class="form-label">Gênero</label>
             <input type="text" asp-for="Genre" class="form-control" id="genre">
+            @Html.ValidationMessageFor(m => m.Genre)
         </div>
         <div class="mb-3">
             <label for="duration" class="form-label">Duração</label>
             <input type="text" asp-for="Duration" class="form-control" id="duration">
+            @Html.ValidationMessageFor(m => m.Duration)
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Adicionar música</button>
