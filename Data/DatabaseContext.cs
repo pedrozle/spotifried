@@ -8,4 +8,6 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbCont
 
     public DbSet<MusicModel> Music { get; set; }
 
+    public DbSet<UserModel> Users { get; set; }
+
 }
