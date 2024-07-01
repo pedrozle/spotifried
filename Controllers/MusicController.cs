@@ -20,6 +20,13 @@ public class MusicController(IMusicRepository musicRepository) : Controller
     }
 
     [HttpPost]
+    public IActionResult DeleteMusic(int id)
+    {
+        _musicRepository.DeleteMusic(id);
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpPost]
     public IActionResult AddMusic(MusicModel music)
     {
         _musicRepository.AddMusic(music);

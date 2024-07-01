@@ -8,4 +8,8 @@ public interface IMusicRepository{
 
     MusicModel AddMusic(MusicModel music);
 
+    MusicModel? GetById(int id);
+
+    bool DeleteMusic(int id);
+
 }
