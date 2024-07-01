@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Spotifried.Models;
 
 public class UserModel
@@ -28,5 +30,18 @@ public class UserModel
 
     public DateTime? UpdatedDate { get; set; }
 
+    public bool CheckPassword(string pass)
+    {
+        return pass == Password;
+    }
 
+}
+
+public class UserLoginModel
+{
+    [Required(ErrorMessage = "Digite o username")]
+    public string Username { get; set; }
+
+    [Required(ErrorMessage = "Digite a senha")]
+    public string Password { get; set; }
 }

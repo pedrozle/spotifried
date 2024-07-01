@@ -10,6 +10,8 @@ public interface IUserRepository{
 
     UserModel? GetById(int id);
 
+    UserModel? GetByUsername(string Username);
+
     bool DeleteUser(int id);
 
 }

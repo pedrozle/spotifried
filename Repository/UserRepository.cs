@@ -14,6 +14,10 @@ public class UserRepository(DatabaseContext db) : IUserRepository
         return _db.Users.FirstOrDefault(m => m.Id == id);
     }
 
+    public UserModel? GetByUsername(string username){
+        return _db.Users.FirstOrDefault(m => m.Username.Equals(username, StringComparison.CurrentCultureIgnoreCase));
+    }
+
     public List<UserModel> GetAllUser()
     {
         return _db.Users.ToList();
