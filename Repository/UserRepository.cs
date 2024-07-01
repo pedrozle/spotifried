@@ -15,7 +15,7 @@ public class UserRepository(DatabaseContext db) : IUserRepository
     }
 
     public UserModel? GetByUsername(string username){
-        return _db.Users.FirstOrDefault(m => m.Username.Equals(username, StringComparison.CurrentCultureIgnoreCase));
+        return _db.Users.FirstOrDefault(m => m.Username.ToLower() == username.ToLower());
     }
 
     public List<UserModel> GetAllUser()
