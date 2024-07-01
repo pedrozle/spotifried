@@ -10,7 +10,8 @@ public class MusicController(IMusicRepository musicRepository) : Controller
 
     public IActionResult Index()
     {
-        return View();
+        var listMusic = _musicRepository.GetAllMusic();
+        return View(listMusic);
     }
 
     public IActionResult AddMusic()

@@ -1,3 +1,4 @@
+@model List<MusicModel>
 @{
     ViewData["Title"] = "Músicas";
 }
@@ -13,108 +14,42 @@
             <th scope="col">Título</th>
             <th scope="col">Álbum</th>
             <th scope="col">Artista</th>
-            <th scope="col">Ano</th>
+            <th scope="col">Gênero</th>
+            <th scope="col">Duração</th>
             <th scope="col">Avaliações</th>
             <th scope="col">Ações</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Numb</td>
-            <td>Meteora</td>
-            <td>Linkin Park</td>
-            <td>2003</td>
-            <td>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star"></i>
-            </td>
-            <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Remover
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Somewhere I Belong</td>
-            <td>Meteora</td>
-            <td>Linkin Park</td>
-            <td>2003</td>
-            <td>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-            </td>
-            <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Remover
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Breaking the Habit</td>
-            <td>Meteora</td>
-            <td>Linkin Park</td>
-            <td>2003</td>
-            <td>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-            </td>
-            <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Remover
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Faint</td>
-            <td>Meteora</td>
-            <td>Linkin Park</td>
-            <td>2003</td>
-            <td>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-            </td>
-            <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Remover
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">5</th>
-            <td>From the Inside</td>
-            <td>Meteora</td>
-            <td>Linkin Park</td>
-            <td>2003</td>
-            <td>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-            </td>
-            <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Remover
-                </button>
-            </td>
-        </tr>
-
+        @if (Model != null && Model.Any())
+        {
+            foreach (var music in Model)
+            {
+                <tr>
+                    <th scope="row">@music.Id</th>
+                    <td>@music.Title</td>
+                    <td>@music.Album</td>
+                    <td>@music.Artist</td>
+                    <td>@music.Genre</td>
+                    <td>@music.Duration</td>
+                    <td>
+                        @foreach (var i in Enumerable.Range(0, music.Rating))
+                        {
+                            <span class="fa fa-star text-warning"></span>
+                        }
+                        @foreach (var i in Enumerable.Range(0, 5 - music.Rating))
+                        {
+                            <span class="fa fa-star"></span>
+                        }
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" asp-route-itemid="@music.Id">
+                            Remover
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
     </tbody>
 </table>
 
