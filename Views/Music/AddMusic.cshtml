@@ -1,3 +1,4 @@
+@model MusicModel
 @{
     ViewData["Title"] = "Adicionar Música";
 }
@@ -5,23 +6,27 @@
 
 <h1 class="fs-1">Adicionar Música</h1>
 
-<form>
+<form asp-controller="Music" asp-action="AddMusic" method="post">
     <div class="d-flex gap-5">
         <div class="mb-3">
             <label for="title" class="form-label">Título</label>
-            <input type="text" class="form-control" id="title">
+            <input type="text" asp-for="Title" class="form-control" id="title">
         </div>
         <div class="mb-3">
             <label for="album" class="form-label">Álbum</label>
-            <input type="text" class="form-control" id="album">
+            <input type="text" asp-for="Album" class="form-control" id="album">
         </div>
         <div class="mb-3">
             <label for="artist" class="form-label">Artista</label>
-            <input type="text" class="form-control" id="artist">
+            <input type="text" asp-for="Artist" class="form-control" id="artist">
         </div>
         <div class="mb-3">
-            <label for="year" class="form-label">Ano</label>
-            <input type="text" class="form-control" id="year">
+            <label for="genre" class="form-label">Gênero</label>
+            <input type="text" asp-for="Genre" class="form-control" id="genre">
+        </div>
+        <div class="mb-3">
+            <label for="duration" class="form-label">Duração</label>
+            <input type="text" asp-for="Duration" class="form-control" id="duration">
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Adicionar música</button>

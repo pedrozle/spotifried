@@ -1,11 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using Spotifried.Data;
+using Spotifried.Repository;
+using Spotifried.Repository.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddEntityFrameworkSqlServer().AddDbContext<DatabaseContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+builder.Services.AddScoped<IMusicRepository, MusicRepository>();
 
 var app = builder.Build();
 
