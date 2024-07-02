@@ -4,6 +4,7 @@ using Spotifried.Repository.Interfaces;
 
 namespace Spotifried.Controllers;
 
+[ActionFilters]
 public class UserController(IUserRepository userRepository) : Controller
 {
 

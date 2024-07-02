@@ -4,6 +4,7 @@ using Spotifried.Models;
 
 namespace Spotifried.Controllers;
 
+[ActionFilters]
 public class HomeController : Controller
 {
 

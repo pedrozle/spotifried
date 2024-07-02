@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Spotifried.Models;
 using Spotifried.Repository.Interfaces;
 
+[ActionFilters]
 public class MusicController(IMusicRepository musicRepository) : Controller
 {
 
