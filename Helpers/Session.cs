@@ -4,27 +4,33 @@ using Spotifried.Helpers.Interfaces;
 
 namespace Spotifried.Helpers;
 
-public class Session(IHttpContextAccessor httpContext) : ISessao
+public class Session(IHttpContextAccessor? httpContext) : ISessao
 {
-    private readonly IHttpContextAccessor _httpContext = httpContext;
+    private readonly IHttpContextAccessor? _httpContext = httpContext;
     public UserModel? GetSession()
     {
-        string sessaoUsuario = _httpContext.HttpContext.Session.GetString(Globals.KEY);
+        if (_httpContext!.HttpContext is not null)
+        {
+            string? sessaoUsuario = _httpContext.HttpContext.Session.GetString(Globals.KEY);
 
-        if (string.IsNullOrEmpty(sessaoUsuario)) return null;
+            if (string.IsNullOrEmpty(sessaoUsuario)) return null;
 
-        return JsonConvert.DeserializeObject<UserModel>(sessaoUsuario);
+            return JsonConvert.DeserializeObject<UserModel>(sessaoUsuario);
+        }
+        return null;
     }
 
     public void SetSession(UserModel usuario)
     {
         string valor = JsonConvert.SerializeObject(usuario);
 
-        _httpContext.HttpContext.Session.SetString(Globals.KEY, valor);
+        if (_httpContext!.HttpContext is not null) 
+            _httpContext.HttpContext.Session.SetString(Globals.KEY, valor);
     }
 
     public void DeleteSession()
     {
-        _httpContext.HttpContext.Session.Remove(Globals.KEY);
+        if (_httpContext!.HttpContext is not null) 
+            _httpContext.HttpContext.Session.Remove(Globals.KEY);
     }
 }

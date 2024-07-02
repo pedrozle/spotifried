@@ -4,9 +4,6 @@ namespace Spotifried.Models;
 
 public class MusicModel
 {
-
-    public MusicModel() { }
-
     // Constructor with parameters
     public MusicModel(string title, string artist, string album, string genre, int duration)
     {

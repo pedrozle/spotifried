@@ -8,13 +8,13 @@ namespace Spotifried.ViewComponents;
 public class Menu : ViewComponent
 {
 
-    public async Task<IViewComponentResult?> InvokeAsync()
+    public IViewComponentResult? Invoke()
     {
-        string session = HttpContext.Session.GetString(Globals.KEY);
+        string? session = HttpContext.Session.GetString(Globals.KEY);
 
         if (session.IsNullOrEmpty()) return null;
 
-        UserModel user = JsonConvert.DeserializeObject<UserModel>(session);
+        UserModel? user = JsonConvert.DeserializeObject<UserModel>(session!);
 
         return View(user);
     }

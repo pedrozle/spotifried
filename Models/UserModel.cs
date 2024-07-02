@@ -4,10 +4,6 @@ namespace Spotifried.Models;
 
 public class UserModel
 {
-    public UserModel()
-    {
-    }
-
     public UserModel(string name, string username, string email, string password)
     {
         Name = name;
@@ -40,8 +36,8 @@ public class UserModel
 public class UserLoginModel
 {
     [Required(ErrorMessage = "Digite o username")]
-    public string Username { get; set; }
+    public string? Username { get; set; }
 
     [Required(ErrorMessage = "Digite a senha")]
-    public string Password { get; set; }
+    public string? Password { get; set; }
 }

@@ -38,11 +38,11 @@ public class LoginController(IUserRepository userRepository, ISessao sessao) : C
         }
 
 
-        var userDB = _userRepository.GetByUsername(user.Username);
+        var userDB = _userRepository.GetByUsername(user.Username!);
 
         if (userDB != null)
         {
-            if (userDB.CheckPassword(user.Password))
+            if (userDB.CheckPassword(user.Password!))
             {
                 _sessao.SetSession(userDB);
                 return RedirectToAction("Index", "Home");
