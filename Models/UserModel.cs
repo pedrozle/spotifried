@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using Spotifried.Helpers;
 
 namespace Spotifried.Models;
 
 public class UserModel
 {
+    public UserModel() {}
     public UserModel(string name, string username, string email, string password)
     {
         Name = name;
@@ -29,6 +31,10 @@ public class UserModel
     public bool CheckPassword(string pass)
     {
         return pass == Password;
+    }
+
+    public void SetPasswordHash(){
+        Password = Password.GenerateHash();
     }
 
 }

@@ -29,11 +29,12 @@ public class UserController(IUserRepository userRepository) : Controller
     }
 
     [HttpPost]
-    public IActionResult AddUser(UserModel User)
+    public IActionResult AddUser(UserModel user)
     {
-        if (!ModelState.IsValid) return View(User);
-        User.CreationDate = DateTime.Now;
-        _userRepository.AddUser(User);
+        if (!ModelState.IsValid) return View(user);
+        user.CreationDate = DateTime.Now;
+        user.SetPasswordHash();
+        _userRepository.AddUser(user);
         return RedirectToAction(nameof(Index));
     }
 
