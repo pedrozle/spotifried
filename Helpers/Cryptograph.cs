@@ -5,19 +5,19 @@ namespace Spotifried.Helpers;
 
 public static class Cryptograph{
 
-    public static string GenerateHash(this string value){
-
-        var hash = SHA256.Create();
+    public static string GenerateHash(this string value)
+    {
         var encoding = new ASCIIEncoding();
         var array = encoding.GetBytes(value);
 
-        array = hash.ComputeHash(array);
+        array = SHA256.HashData(array);
 
         var strHexa = new StringBuilder();
 
-        foreach (var i in array){
+        foreach (var i in array)
+        {
             strHexa.Append(i.ToString("x2"));
-        } 
+        }
 
         return strHexa.ToString();
 
