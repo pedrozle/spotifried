@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Spotifried.Data;
+using Spotifried.Helpers;
+using Spotifried.Helpers.Interfaces;
 using Spotifried.Repository;
 using Spotifried.Repository.Interfaces;
 
@@ -10,6 +12,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddEntityFrameworkSqlServer().AddDbContext<DatabaseContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
 builder.Services.AddScoped<IMusicRepository, MusicRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+builder.Services.AddScoped<ISessao, Session>();
+builder.Services.AddSession(o =>
+{
+    o.Cookie.Name = "Spotifried.Session";
+    o.Cookie.HttpOnly = true;
+    o.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -27,6 +38,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

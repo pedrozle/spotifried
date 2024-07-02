@@ -1,16 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
+using Spotifried.Helpers.Interfaces;
 using Spotifried.Models;
 using Spotifried.Repository.Interfaces;
 
 namespace Spotifried.Controllers;
 
-public class LoginController(IUserRepository userRepository) : Controller
+public class LoginController(IUserRepository userRepository, ISessao sessao) : Controller
 {
 
     private readonly IUserRepository _userRepository = userRepository;
 
+    private readonly ISessao _sessao = sessao;
+
     public IActionResult Index()
     {
+        if (_sessao.GetSession() != null)
+            return RedirectToAction("Index", "Home");
         return View();
     }
 
@@ -38,8 +43,11 @@ public class LoginController(IUserRepository userRepository) : Controller
         if (userDB != null)
         {
             if (userDB.CheckPassword(user.Password))
+            {
+                _sessao.SetSession(userDB);
                 return RedirectToAction("Index", "Home");
-            else 
+            }
+            else
                 message = "Senha incorreta!";
         }
         else
@@ -54,6 +62,12 @@ public class LoginController(IUserRepository userRepository) : Controller
         return View("Index");
 
 
+    }
+
+    public IActionResult Logout()
+    {
+        _sessao.DeleteSession();
+        return RedirectToAction("Index", "Login");
     }
 
 }

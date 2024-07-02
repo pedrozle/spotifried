@@ -8,8 +8,9 @@ public class UserController(IUserRepository userRepository) : Controller
 {
 
     private readonly IUserRepository _userRepository = userRepository;
-    
-    public IActionResult Index(){
+
+    public IActionResult Index()
+    {
         var listUser = _userRepository.GetAllUser();
         return View(listUser);
     }
@@ -29,7 +30,8 @@ public class UserController(IUserRepository userRepository) : Controller
     [HttpPost]
     public IActionResult AddUser(UserModel User)
     {
-        if(!ModelState.IsValid) return View(User);
+        if (!ModelState.IsValid) return View(User);
+        User.CreationDate = DateTime.Now;
         _userRepository.AddUser(User);
         return RedirectToAction(nameof(Index));
     }
