@@ -19,7 +19,8 @@ public class LoginController(IUserRepository userRepository, ISessao sessao) : C
         return View();
     }
 
-    public IActionResult Login(){
+    public IActionResult Login()
+    {
         return View();
     }
 
@@ -33,17 +34,19 @@ public class LoginController(IUserRepository userRepository, ISessao sessao) : C
     {
 
         Dictionary<string, string> dict;
-        string message = "";
+        string content = "";
 
         if (!ModelState.IsValid)
         {
             dict = new Dictionary<string, string>
             {
-                { "Type", "warning" },
-                { "Message", "Dados inválidos"}
+                { "Title", "Dados Inválidos" },
+                { "Content", "Insira as informações de login"},
+                {"Type", "warning"},
+                {"Icon", "fa-exclamation"}
             };
             TempData["Alert"] = dict;
-            return View("Index");
+            return View("Login");
         }
 
 
@@ -57,18 +60,21 @@ public class LoginController(IUserRepository userRepository, ISessao sessao) : C
                 return RedirectToAction("Index", "Home");
             }
             else
-                message = "Senha incorreta!";
+                content = "Senha incorreta!";
         }
         else
-            message = "Usuário não encontrado!";
+            content = "Usuário não encontrado!";
 
         dict = new Dictionary<string, string>
             {
-                { "Type", "danger" },
-                { "Message", message }
+                { "Title", "Dados Inválidos" },
+                { "Content", content},
+                {"Type", "danger"},
+                {"Icon", "fa-times"}
             };
+            TempData["Alert"] = dict;
         TempData["Alert"] = dict;
-        return View("Index");
+            return View("Login");
 
 
     }

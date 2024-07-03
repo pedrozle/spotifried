@@ -24,3 +24,25 @@ body {
 .field-validation-error {
   color: rgb(214, 0, 0);
 }
+
+.notify-animation{
+  animation: bounce-once .5s linear;
+}
+
+@keyframes bounce-once {
+  0% {
+    transform: translateX(100%);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateX(-10%);
+    animation-timing-function: ease-in;
+  }
+  70% {
+    transform: translateX(5%);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateX(0%);
+    animation-timing-function: ease-in;}
+}

@@ -28,3 +28,7 @@ $(document).ready(function () {
     },
   });
 });
+
+function dismissNotification() {
+  document.getElementById('notification').style.display = 'none';
+}

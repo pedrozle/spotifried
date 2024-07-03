@@ -1,0 +1,32 @@
+@model NotificationModel;
+@{
+  var color = "black";
+  switch (Model.Type)
+  {
+    case "success":
+      color = "green";
+      break;
+    case "warning":
+      color = "black";
+      break;
+    case "danger":
+      color = "white";
+      break;
+    default:
+      color = "black";
+      break;
+  }
+}
+
+<div class="alert fixed top-4 right-4 z-50 w-full max-w-sm rounded-lg bg-@Model.Type shadow-lg alert-dismissible p-0 notify-animation" role="alert">
+  <div class="flex items-center gap-4 p-4">
+    <div class="w-[50px] h-[50px] rounded-full bg-@color flex justify-center items-center">
+      <p class="fa @Model.Icon text-@Model.Type text-xl"></p>
+    </div>
+    <div class="flex-1 text-@color">
+      <h3 class="text-lg font-bold">@Model.Title</h3>
+      <p class="text-sm">@Model.Content</p>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
