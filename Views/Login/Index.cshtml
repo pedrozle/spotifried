@@ -1,184 +1,159 @@
 @model UserLoginModel
 @{
-    Layout = "_LayoutNotLogged";
-    ViewData["Title"] = "Início";
+  Layout = "_LayoutNotLogged";
+  ViewData["Title"] = "Início";
 }
 
 <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[#1DB954] text-white">
-      <div class="container px-4 md:px-6">
-        <div class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-          <div class="flex flex-col justify-center space-y-4">
-            <div class="space-y-2">
-              <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Músicas Ilimitadas, podcasts, & mais.
-              </h1>
-              <p class="max-w-[600px] text-muted-foreground md:text-xl">
-                Discubra as melhores músicas, podcasts, e recomendações personalizadas para você.
+  <div class="container px-4 md:px-6">
+    <div class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+      <div class="flex flex-col justify-center space-y-4">
+        <div class="space-y-2">
+          <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+            Músicas Ilimitadas, podcasts, & mais.
+          </h1>
+          <p class="max-w-[600px] text-muted-foreground md:text-xl">
+            Discubra as melhores músicas, podcasts, e recomendações personalizadas para você.
+          </p>
+        </div>
+        <div class="flex flex-col gap-2 min-[400px]:flex-row">
+          <a class="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-[#1DB954] shadow transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            href="#" rel="ugc">
+            Entrar
+          </a>
+          <a class="inline-flex h-10 items-center justify-center rounded-md border border-input bg-[#1DB954] px-8 text-sm font-medium shadow-sm transition-colors hover:bg-[#1ed760] hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            href="#details" rel="ugc">
+            Descubra Mais
+          </a>
+        </div>
+      </div>
+      <img src="https://placeholder.com/550" width="550" height="550" alt="Hero"
+        class="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square" />
+    </div>
+  </div>
+</section>
+<section id="details" class="w-full py-12 md:py-24 lg:py-32 bg-muted">
+  <div class="container px-4 md:px-6">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="space-y-2">
+        <div class="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Features</div>
+        <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
+          Descubra as melhores músicas, podcasts, & mais.
+        </h2>
+        <p class="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          Spotifried oferece uma ampla gama de recursos para aprimorar sua experiência auditiva, desde personalização
+          recomendações para gerenciamento contínuo de playlists.
+        </p>
+      </div>
+    </div>
+    <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+      <img src="https://placeholder.com/550x310" width="550" height="310" alt="Music Streaming"
+        class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last" />
+      <div class="flex flex-col justify-center space-y-4">
+        <ul class="grid gap-6">
+          <li>
+            <div class="grid gap-1">
+              <h3 class="text-xl font-bold">Streaming de música</h3>
+              <p class="text-muted-foreground">
+                Desfrute de milhões de músicas, álbuns e playlists ao seu alcance.
               </p>
             </div>
-            <div class="flex flex-col gap-2 min-[400px]:flex-row">
-              <a
-                class="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-[#1DB954] shadow transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                href="#"
-                rel="ugc"
-              >
-                Entrar
-              </a>
-              <a
-                class="inline-flex h-10 items-center justify-center rounded-md border border-input bg-[#1DB954] px-8 text-sm font-medium shadow-sm transition-colors hover:bg-[#1ed760] hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                href="#details"
-                rel="ugc"
-              >
-                Descubra Mais
-              </a>
+          </li>
+          <li>
+            <div class="grid gap-1">
+              <h3 class="text-xl font-bold">Recomendações Personalizadas</h3>
+              <p class="text-muted-foreground">
+                Obtenha recomendações personalizadas de músicas e podcasts com base em seus hábitos de audição.
+              </p>
             </div>
-          </div>
-          <img
-            src="https://placeholder.com/550"
-            width="550"
-            height="550"
-            alt="Hero"
-            class="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
-          />
-        </div>
+          </li>
+          <li>
+            <div class="grid gap-1">
+              <h3 class="text-xl font-bold">Playlists</h3>
+              <p class="text-muted-foreground">
+                Crie, edite e compartilhe playlists com seus amigos e familiares.
+              </p>
+            </div>
+          </li>
+        </ul>
       </div>
-    </section>
-    <section id="details" class="w-full py-12 md:py-24 lg:py-32 bg-muted">
-      <div class="container px-4 md:px-6">
-        <div class="flex flex-col items-center justify-center space-y-4 text-center">
-          <div class="space-y-2">
-            <div class="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Features</div>
-            <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Descubra as melhores músicas, podcasts, & mais.
-            </h2>
-            <p class="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Spotifried offers a wide range of features to enhance your listening experience, from personalized
-              recommendations to seamless playlist management.
-            </p>
-          </div>
-        </div>
-        <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-          <img
-            src="https://placeholder.com/550x310"
-            width="550"
-            height="310"
-            alt="Music Streaming"
-            class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-          />
-          <div class="flex flex-col justify-center space-y-4">
-            <ul class="grid gap-6">
-              <li>
-                <div class="grid gap-1">
-                  <h3 class="text-xl font-bold">Music Streaming</h3>
-                  <p class="text-muted-foreground">
-                    Enjoy millions of songs, albums, and playlists at your fingertips.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div class="grid gap-1">
-                  <h3 class="text-xl font-bold">Personalized Recommendations</h3>
-                  <p class="text-muted-foreground">
-                    Get personalized music and podcast recommendations based on your listening habits.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div class="grid gap-1">
-                  <h3 class="text-xl font-bold">Playlist Management</h3>
-                  <p class="text-muted-foreground">
-                    Create, edit, and share playlists with your friends and family.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+    </div>
+  </div>
+</section>
+<section class="w-full py-12 md:py-24 lg:py-32 bg-[#1DB954] text-white">
+  <div class="container px-4 md:px-6">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="space-y-2">
+        <div class="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Depoimentos</div>
+        <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">O que nossos usuários dizem</h2>
+        <p class="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          Ouça nossos usuários satisfeitos sobre sua experiência com o Spotifried.
+        </p>
       </div>
-    </section>
-    <section class="w-full py-12 md:py-24 lg:py-32 bg-[#1DB954] text-white">
-      <div class="container px-4 md:px-6">
-        <div class="flex flex-col items-center justify-center space-y-4 text-center">
-          <div class="space-y-2">
-            <div class="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Testimonials</div>
-            <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">What Our Users Say</h2>
-            <p class="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Hear from our satisfied users about their experience with Spotify Clone.
-            </p>
-          </div>
-        </div>
-        <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-          <div class="flex flex-col justify-center space-y-4">
-            <div class="grid gap-4">
-              <div class="bg-white rounded-lg p-6 text-black shadow-lg">
-                <div class="flex items-center gap-4 mb-4">
-                  <div class="rounded-full bg-gray-200 w-12 h-12 flex items-center justify-center text-2xl">🎶</div>
-                  <div>
-                    <h4 class="text-lg font-bold">Jane Doe</h4>
-                    <p class="text-sm text-muted-foreground">Music Lover</p>
-                  </div>
-                </div>
-                <p class="text-muted-foreground">
-                  "Spotify Clone has completely transformed my music\n listening experience. The personalized
-                  recommendations\n and seamless playlist management make it a must-have\n app."
-                </p>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-black shadow-lg">
-                <div class="flex items-center gap-4 mb-4">
-                  <div class="rounded-full bg-gray-200 w-12 h-12 flex items-center justify-center text-2xl">🎧</div>
-                  <div>
-                    <h4 class="text-lg font-bold">John Smith</h4>
-                    <p class="text-sm text-muted-foreground">Podcast Enthusiast</p>
-                  </div>
-                </div>
-                <p class="text-muted-foreground">
-                  "As a podcast lover, Spotify Clone has been a game-changer.\n The wide selection of podcasts and
-                  the ability to easily\n discover new ones has made my commute so much more\n enjoyable."
-                </p>
+    </div>
+    <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+      <div class="flex flex-col justify-center space-y-4">
+        <div class="grid gap-4">
+          <div class="bg-white rounded-lg p-6 text-black shadow-lg">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="rounded-full bg-gray-200 w-12 h-12 flex items-center justify-center text-2xl">🎶</div>
+              <div>
+                <h4 class="text-lg font-bold">Jane Doe</h4>
+                <p class="text-sm text-muted-foreground">Amante de música</p>
               </div>
             </div>
-          </div>
-          <img
-            src="https://placeholder.com/550x310"
-            width="550"
-            height="310"
-            alt="Testimonials"
-            class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-          />
-        </div>
-      </div>
-    </section>
-    <section class="w-full py-12 md:py-24 lg:py-32 border-t">
-      <div class="container px-4 md:px-6">
-        <div class="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
-          <div class="space-y-4">
-            <div class="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Download</div>
-            <h2 class="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-              Listen Anywhere, Anytime.
-            </h2>
-            <a
-              class="inline-flex h-9 items-center justify-center rounded-md bg-[#1DB954] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#1ed760] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-              href="#"
-              rel="ugc"
-            >
-              Download App
-            </a>
-          </div>
-          <div class="flex flex-col items-start space-y-4">
-            <div class="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">About</div>
-            <p class="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-              Spotify Clone is a music streaming platform that offers millions of songs, podcasts, and personalized
-              recommendations. With our intuitive interface and seamless features, you can discover new music,
-              create playlists, and enjoy your favorite content anytime, anywhere.
+            <p class="text-muted-foreground">
+              "O Spotifried transformou completamente minha experiência de ouvir música. O atendimento personalizado
+              recomendações e gerenciamento contínuo de playlists fazem dele um app obrigatório."
             </p>
-            <a
-              class="inline-flex h-9 items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-              href="#"
-              rel="ugc"
-            >
-              Learn More
-            </a>
+          </div>
+          <div class="bg-white rounded-lg p-6 text-black shadow-lg">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="rounded-full bg-gray-200 w-12 h-12 flex items-center justify-center text-2xl">🎧</div>
+              <div>
+                <h4 class="text-lg font-bold">John Smith</h4>
+                <p class="text-sm text-muted-foreground">Podcaster</p>
+              </div>
+            </div>
+            <p class="text-muted-foreground">
+              "Como amante de podcasts, o Spotifried mudou o jogo. A ampla seleção de podcasts e
+              a capacidade de descobrir novos facilmente tornou meu trajeto muito mais\n agradável."
+            </p>
           </div>
         </div>
       </div>
-    </section>
+      <img src="https://placeholder.com/550x310" width="550" height="310" alt="Testimonials"
+        class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last" />
+    </div>
+  </div>
+</section>
+<section class="w-full py-12 md:py-24 lg:py-32 border-t">
+  <div class="container px-4 md:px-6">
+    <div class="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
+      <div class="space-y-4">
+        <div class="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Download</div>
+        <h2
+          class="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
+          Ouça em qualquer lugar, a qualquer hora.
+        </h2>
+        <a class="inline-flex h-9 items-center justify-center rounded-md bg-[#1DB954] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#1ed760] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+          href="#" rel="ugc">
+          Baixar
+        </a>
+      </div>
+      <div class="flex flex-col items-start space-y-4">
+        <div class="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Sobre</div>
+        <p class="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+          Spotifried é uma plataforma de streaming de música que oferece milhões de músicas, podcasts e vídeos
+          personalizados
+          recomendações. Com nossa interface intuitiva e recursos integrados, você pode descobrir novas músicas,
+          crie listas de reprodução e curta seu conteúdo favorito a qualquer hora e em qualquer lugar.
+        </p>
+        <a class="inline-flex h-9 items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+          href="#" rel="ugc">
+          Saiba mais
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
