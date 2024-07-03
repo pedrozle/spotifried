@@ -31,11 +31,11 @@ public class MusicModel
     [Required(ErrorMessage = "Duração obrigatório")]
     public int Duration { get; set; }
 
-    public List<int> Rating { get; set; }
+    public List<Rating> Ratings { get; set; } = [];
 
     public double GetRating()
     {
-        return Rating.Average();
+        return Ratings.Any() ? Ratings.Average(r => r.RatingValue) : 0;
     }
 
 }

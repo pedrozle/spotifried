@@ -12,8 +12,8 @@ using Spotifried.Data;
 namespace Spotifried.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240702162313_Initial")]
-    partial class Initial
+    [Migration("20240703003303_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,10 @@ namespace Spotifried.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlCover")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -85,10 +89,6 @@ namespace Spotifried.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Rating")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -98,6 +98,27 @@ namespace Spotifried.Migrations
                     b.HasIndex("AlbumId");
 
                     b.ToTable("Music");
+                });
+
+            modelBuilder.Entity("Spotifried.Models.Rating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("MusicModelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RatingValue")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MusicModelId");
+
+                    b.ToTable("Rating");
                 });
 
             modelBuilder.Entity("Spotifried.Models.UserModel", b =>
@@ -157,6 +178,17 @@ namespace Spotifried.Migrations
                     b.Navigation("Album");
                 });
 
+            modelBuilder.Entity("Spotifried.Models.Rating", b =>
+                {
+                    b.HasOne("Spotifried.Models.MusicModel", "MusicModel")
+                        .WithMany("Ratings")
+                        .HasForeignKey("MusicModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MusicModel");
+                });
+
             modelBuilder.Entity("Spotifried.Models.AlbumModel", b =>
                 {
                     b.Navigation("Musics");
@@ -165,6 +197,11 @@ namespace Spotifried.Migrations
             modelBuilder.Entity("Spotifried.Models.ArtistModel", b =>
                 {
                     b.Navigation("Albums");
+                });
+
+            modelBuilder.Entity("Spotifried.Models.MusicModel", b =>
+                {
+                    b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618
         }

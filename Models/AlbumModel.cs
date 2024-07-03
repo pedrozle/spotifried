@@ -7,11 +7,12 @@ public class AlbumModel
 
     public AlbumModel() { }
 
-    public AlbumModel(string title, DateTime publish, int artistId)
+    public AlbumModel(string title, DateTime publish, int artistId, string urlCover)
     {
         Title = title;
         PublishedAt = publish;
         ArtistId = artistId;
+        UrlCover = urlCover;
     }
 
     public int Id { get; set; }
@@ -25,6 +26,8 @@ public class AlbumModel
     public int ArtistId { get; set; }
 
     public ArtistModel Artist { get; set; }
+
+    public string UrlCover { get; set; }
 
     public virtual List<MusicModel> Musics { get; set; }
 

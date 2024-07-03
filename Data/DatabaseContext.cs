@@ -15,6 +15,10 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbCont
     {
         modelBuilder.ApplyConfiguration(new AlbumMap());
         modelBuilder.ApplyConfiguration(new MusicMap());
+        modelBuilder.Entity<MusicModel>()
+            .HasMany(m => m.Ratings)
+            .WithOne(r => r.MusicModel)
+            .HasForeignKey(r => r.MusicModelId);
         base.OnModelCreating(modelBuilder);
     }
 
