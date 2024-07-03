@@ -5,7 +5,7 @@ using Spotifried.Models;
 
 namespace Spotifried.ViewComponents;
 
-public class Menu : ViewComponent
+public class Footer : ViewComponent
 {
 
     public async Task<IViewComponentResult> InvokeAsync()
