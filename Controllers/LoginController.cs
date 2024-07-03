@@ -19,6 +19,10 @@ public class LoginController(IUserRepository userRepository, ISessao sessao) : C
         return View();
     }
 
+    public IActionResult Login(){
+        return View();
+    }
+
     [HttpPost]
     public IActionResult Login(UserLoginModel user)
     {
