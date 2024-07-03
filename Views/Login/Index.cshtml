@@ -26,8 +26,22 @@
           </a>
         </div>
       </div>
-      <img src="https://placeholder.com/550" width="550" height="550" alt="Hero"
-        class="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square" />
+      @* <img src="https://placeholder.com/550" width="550" height="550" alt="Hero"
+        class="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square" /> *@
+        <div class="carousel-container">
+          <div class="carousel-slide">
+              <img class="object-cover" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4d/Queen_A_Night_At_The_Opera.png/220px-Queen_A_Night_At_The_Opera.png" alt="Slide 1">
+          </div>
+          <div class="carousel-slide">
+              <img class="object-cover" src="https://imusic.b-cdn.net/images/item/original/447/0602435357447.jpg?selena-gomez-revival-5-tracks-cd&class=scaled&v=1697033381" alt="Slide 2">
+          </div>
+          <div class="carousel-slide">
+              <img class="object-cover" src="https://m.media-amazon.com/images/I/91B7UIQ6xNL._UF1000,1000_QL80_.jpg" alt="Slide 3">
+          </div>
+
+          <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+          <a class="next" onclick="changeSlide(1)">&#10095;</a>
+      </div>
     </div>
   </div>
 </section>
