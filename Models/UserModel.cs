@@ -5,23 +5,18 @@ namespace Spotifried.Models;
 
 public class UserModel
 {
-    public UserModel() { }
-    public UserModel(string name, string username, string email, string password)
-    {
-        Name = name;
-        Username = username;
-        Email = email;
-        Password = password;
-    }
-
     public int Id { get; set; }
 
+    [Required(ErrorMessage = "Digite o nome")]
     public string Name { get; set; }
 
+    [Required(ErrorMessage = "Digite o username")]
     public string Username { get; set; }
 
+    [Required(ErrorMessage = "Digite o email")]
     public string Email { get; set; }
 
+    [Required(ErrorMessage = "Digite a senha")]
     public string Password { get; set; }
 
     public DateTime CreationDate { get; set; }
@@ -43,8 +38,8 @@ public class UserModel
 public class UserLoginModel
 {
     [Required(ErrorMessage = "Digite o username")]
-    public string? Username { get; set; }
+    public string Username { get; set; }
 
     [Required(ErrorMessage = "Digite a senha")]
-    public string? Password { get; set; }
+    public string Password { get; set; }
 }

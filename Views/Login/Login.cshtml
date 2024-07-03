@@ -28,7 +28,7 @@
     </div>
     <div class="w-full max-w-md p-6 bg-[#282828] rounded-lg shadow-lg">
         <h2 class="text-2xl text-center font-bold mb-6">Faça Login no Spotifried</h2>
-        <form class="space-y-4"  asp-controller="Login" asp-action="Login" method="post">
+        <form class="space-y-4 mb-4"  asp-controller="Login" asp-action="Login" method="post">
             <div>
                 <label
                     class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block mb-1 text-sm font-medium text-[#b3b3b3]"
@@ -38,6 +38,7 @@
                 <input
                     class="flex h-10 border border-input text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full px-2 py-2 bg-[#3e3e3e] border-none rounded-md focus:outline-none focus:ring-2 focus:ring-[#1DB954]"
                     asp-for="Username" id="Username" type="Username" placeholder="ex: joaouser" />
+                    @Html.ValidationMessageFor(u => u.Username)
             </div>
             <div>
                 <label
@@ -49,6 +50,7 @@
                     class="flex h-10 border border-input text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full px-2 py-2 bg-[#3e3e3e] border-none rounded-md focus:outline-none focus:ring-2 focus:ring-[#1DB954]"
                     asp-for="Password" id="password" placeholder="Enter your password"
                     type="password" />
+                    @Html.ValidationMessageFor(u => u.Password)
             </div>
             <button
                 class="inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 w-full px-4 py-2 font-medium text-white bg-[#1DB954] rounded-md hover:bg-[#1ed760] focus:outline-none focus:ring-2 focus:ring-[#1DB954]"
@@ -56,6 +58,10 @@
                 Login
             </button>
         </form>
+        <p>Não possui conta? <a class="text-[#1DB954] hover:text-[#14813A]"
+            asp-area="" asp-controller="Login" asp-action="Register">
+            Crie uma
+          </a></p>
         <div class="mt-4 space-y-2 text-sm text-[#b3b3b3]">
             <a class="hover:underline" href="#"></a>
         </div>

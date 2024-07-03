@@ -16,11 +16,6 @@ public class UserController(IUserRepository userRepository) : Controller
         return View(listUser);
     }
 
-    public IActionResult AddUser()
-    {
-        return View();
-    }
-
     [HttpPost]
     public IActionResult DeleteUser(int id)
     {
@@ -28,14 +23,5 @@ public class UserController(IUserRepository userRepository) : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    [HttpPost]
-    public IActionResult AddUser(UserModel user)
-    {
-        if (!ModelState.IsValid) return View(user);
-        user.CreationDate = DateTime.Now;
-        user.SetPasswordHash();
-        _userRepository.AddUser(user);
-        return RedirectToAction(nameof(Index));
-    }
 
 }

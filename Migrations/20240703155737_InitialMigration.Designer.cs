@@ -12,8 +12,8 @@ using Spotifried.Data;
 namespace Spotifried.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240703003315_InitialData")]
-    partial class InitialData
+    [Migration("20240703155737_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

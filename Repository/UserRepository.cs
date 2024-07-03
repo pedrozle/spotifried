@@ -14,7 +14,8 @@ public class UserRepository(DatabaseContext db) : IUserRepository
         return _db.Users.FirstOrDefault(m => m.Id == id);
     }
 
-    public UserModel? GetByUsername(string username){
+    public UserModel? GetByUsername(string username)
+    {
         return _db.Users.FirstOrDefault(m => m.Username.ToLower() == username.ToLower());
     }
 
@@ -40,4 +41,8 @@ public class UserRepository(DatabaseContext db) : IUserRepository
 
     }
 
+    public UserModel? GetByEmail(string Email)
+    {
+        return _db.Users.FirstOrDefault(m => m.Email.ToLower() == Email.ToLower());
+    }
 }
