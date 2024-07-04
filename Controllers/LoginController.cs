@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Spotifried.Helpers.Interfaces;
 using Spotifried.Models;
+using Spotifried.Models.ViewModels;
 using Spotifried.Repository.Interfaces;
 
 namespace Spotifried.Controllers;

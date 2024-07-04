@@ -11,17 +11,17 @@ public class MusicRepository(DatabaseContext db) : IMusicRepository
 
     public MusicModel? GetById(int id)
     {
-        return _db.Music.FirstOrDefault(m => m.Id == id);
+        return _db.Musics.FirstOrDefault(m => m.Id == id);
     }
 
     public List<MusicModel> GetAllMusic()
     {
-        return _db.Music.ToList();
+        return _db.Musics.ToList();
     }
 
     public MusicModel AddMusic(MusicModel music)
     {
-        _db.Music.Add(music);
+        _db.Musics.Add(music);
         _db.SaveChanges();
         return music;
     }
@@ -30,7 +30,7 @@ public class MusicRepository(DatabaseContext db) : IMusicRepository
     {
 
         MusicModel? musicModel = GetById(id) ?? throw new Exception("Música não encontrada");
-        _db.Music.Remove(musicModel);
+        _db.Musics.Remove(musicModel);
         _db.SaveChanges();
         return true;
 
