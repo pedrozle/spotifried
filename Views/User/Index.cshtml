@@ -1,64 +1,85 @@
-@model List<UserModel>
+@model List<dynamic>
 @{
-    ViewData["Title"] = "Usuários";
+    ViewData["Title"] = "Perfil";
 }
 
-<h1 class="fs-1">Usuários</h1>
-
-<a role="button" class="btn btn-primary" asp-controller="User" asp-action="AddUser">Adicionar Usuário</a>
-
-<table class="table" id="music-table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-            <th scope="col">Data de Criação</th>
-            <th scope="col">Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null && Model.Any())
-        {
-            foreach (var user in Model)
-            {
-                <tr>
-                    <th scope="row">@user.Id</th>
-                    <td>@user.Name</td>
-                    <td>@user.Username</td>
-                    <td>@user.Email</td>
-                    <td>@user.CreationDate</td>
-                    <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#myModal-@user.Id">
-                            Remover
-                        </button>
-                    </td>
-                </tr>
-                <!-- Modal -->
-                <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-                    id="myModal-@user.Id">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Usuário</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Deseja realmente remover o usuário <span style="font-weight: bold;">@user.Name</span> ?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
-                                <form asp-controller="User" asp-action="DeleteUser" method="post">
-                                    <input type="hidden" name="id" value="@user.Id" />
-                                    <button type="submit" class="btn btn-danger">Confirmar</button>
-                                </form>
-                            </div>
-                        </div>
+<div class="my-12">
+    <section class="py-8 md:py-24">
+        <div class="container">
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div class="col-span-2 lg:col-span-1">
+                    <div class="flex h-full flex-col justify-center space-y-4">
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Top Músicas</h2>
+                        <p class="text-muted-foreground md:text-xl">
+                            Só as melhores das melhores!
+                        </p>
                     </div>
                 </div>
-            }
-        }
-    </tbody>
-</table>
+                <div class="col-span-2 lg:col-span-2">
+                    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                        @foreach (var item in Model[0])
+                        {
+                            <a href="#"
+                                class="group flex flex-col items-center gap-2 rounded-lg bg-background p-4 bg-gray-100 transition-colors hover:bg-accent hover:text-accent-foreground">
+                                <div class="h-20 w-20 rounded-lg bg-gray-200 bg-muted-foreground/10"></div>
+                                <div class="text-sm font-medium group-hover:underline">Album 1</div>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-8 md:py-24 bg-gray-200">
+        <div class="container">
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div class="col-span-2 lg:col-span-1">
+                    <div class="flex h-full flex-col justify-center space-y-4">
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Top Álbums</h2>
+                        <p class="text-muted-foreground md:text-xl">
+                            Porque somente uma música não é o suficiente!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-2 lg:col-span-2">
+                    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                        @foreach (var item in Model[1])
+                        {
+                            <a href="#"
+                                class="group flex flex-col items-center gap-2 rounded-lg bg-background p-4 bg-gray-100 transition-colors hover:bg-accent hover:text-accent-foreground">
+                                <div class="h-20 w-20 rounded-lg bg-gray-200 bg-muted-foreground/10"></div>
+                                <div class="text-sm font-medium group-hover:underline">Album 1</div>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-8 md:py-24">
+        <div class="container">
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div class="col-span-2 lg:col-span-1">
+                    <div class="flex h-full flex-col justify-center space-y-4">
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Top Artistas</h2>
+                        <p class="text-muted-foreground md:text-xl">
+                            Esses são os artistas que não saem do seu coração!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-2 lg:col-span-2">
+                    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                        @foreach (var item in Model[2])
+                        {
+                            <a href="#"
+                                class="group flex flex-col items-center gap-2 rounded-lg bg-background p-4 bg-gray-100 transition-colors hover:bg-accent hover:text-accent-foreground">
+                                <div class="h-20 w-20 rounded-lg bg-gray-200 bg-muted-foreground/10"></div>
+                                <div class="text-sm font-medium group-hover:underline">Album 1</div>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

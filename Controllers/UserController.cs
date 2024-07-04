@@ -12,8 +12,14 @@ public class UserController(IUserRepository userRepository) : Controller
 
     public IActionResult Index()
     {
-        var listUser = _userRepository.GetAllUser();
-        return View(listUser);
+
+        var listMusic = new List<MusicModel>();
+        var listAlbum = new List<AlbumModel>();
+        var listArtist = new List<ArtistModel>();
+
+        var list = new List<dynamic> { listMusic, listAlbum, listArtist };
+
+        return View(list);
     }
 
     [HttpPost]
