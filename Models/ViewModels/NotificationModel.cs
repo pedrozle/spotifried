@@ -1,4 +1,4 @@
-namespace Spotifried.Models;
+namespace Spotifried.Models.ViewModels;
 
 public class NotificationModel
 {
