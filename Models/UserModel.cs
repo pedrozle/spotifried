@@ -25,6 +25,9 @@ public class UserModel
 
     public DateTime? UpdatedDate { get; set; }
 
+    public ICollection<Rating> Ratings { get; set; } // Collection of ratings given by the user
+
+
     // Método para verificar senha
     public bool CheckPassword(string pass)
     {

@@ -38,6 +38,11 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbCont
 
         // Configurar relacionamento entre Musica e Rating
         modelBuilder.Entity<Rating>()
+            .HasOne(r => r.User)
+            .WithMany(u => u.Ratings)
+            .HasForeignKey(r => r.UserId);
+
+        modelBuilder.Entity<Rating>()
             .HasOne(r => r.Music)
             .WithMany(m => m.Ratings)
             .HasForeignKey(r => r.MusicId);

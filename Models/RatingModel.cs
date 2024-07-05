@@ -12,4 +12,7 @@ public class Rating
     
     public int MusicId { get; set; }
     public MusicModel Music { get; set; }
+
+    public int UserId { get; set; }
+    public UserModel User { get; set; }
 }
