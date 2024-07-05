@@ -1,0 +1,100 @@
+@{
+    ViewData["Title"] = "Álbum";
+}
+
+<section class="flex flex-row bg-[#121212] text-white p-8 gap-8 mt-8">
+    <div class="">
+        <img src="https://imusic.b-cdn.net/images/item/original/447/0602435357447.jpg?selena-gomez-revival-5-tracks-cd&class=scaled&v=1697033381"
+            alt="Album Cover" width="400" height="400" class="rounded-xl shadow-xl"
+            style="aspect-ratio: 400 / 400; object-fit: cover;" />
+    </div>
+    <div class="flex flex-col gap-4">
+        <div class="space-y-2">
+            <div class="text-sm text-[#b3b3b3]">Álbum</div>
+            <h1 class="text-4xl font-bold">Revival</h1>
+            <div class="text-[#b3b3b3]">
+                <a class="hover:underline" href="#" rel="ugc">
+                    Selena Gomez
+                </a>
+                •
+                <span>2017</span>
+                •
+                <span>16 músicas, 58 mins</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="bg-[#22c55e] px-4 py-2 rounded-full">
+                <span class="fa fa-play"></span>
+            </button>
+            <button class="p-2">
+                <span class="fa fa-random"></span>
+            </button>
+            <button class="p-2">
+                <span class="fa fa-bars"></span>
+            </button>
+        </div>
+        <div class="space-y-2">
+            <div class="text-sm text-[#b3b3b3]">Lista de músicas</div>
+            <table class="w-full caption-bottom text-sm" data-id="10">
+                <thead class="[&amp;_tr]:border-b" data-id="11">
+                    <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                        <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground w-[40px]">
+                            #
+                        </th>
+                        <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground w-[500px]">Título</th>
+                        <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Avaliações</th>
+                        <th class="h-12 px-4 align-middle font-medium text-muted-foreground text-right">Duração</th>
+                    </tr>
+                </thead>
+                <tbody class="[&amp;_tr:last-child]:border-0">
+                    <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted" >
+                        <td class="p-4 align-middle font-medium" >1</td>
+                        <td class="p-4 align-middle font-medium">Revival</td>
+                        <td class="p-4 align-middle">
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span
+                        </td>
+                        <td class="p-4 align-middle text-right">4:06</td>
+                    </tr>
+                    <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted" >
+                        <td class="p-4 align-middle font-medium" >2</td>
+                        <td class="p-4 align-middle font-medium">Kill'em with kindness</td>
+                        <td class="p-4 align-middle">
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span
+                        </td>
+                        <td class="p-4 align-middle text-right">3:37</td>
+                    </tr>
+                    <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted" >
+                        <td class="p-4 align-middle font-medium" >3</td>
+                        <td class="p-4 align-middle font-medium">Sober</td>
+                        <td class="p-4 align-middle">
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span
+                        </td>
+                        <td class="p-4 align-middle text-right">3:14</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="p-8 bg-[#121212] text-white">
+    <h1 class="text-2xl font-bold">Mais de Selena Gomez</h1>
+    <div class="w-full flex gap-4 mt-4 overflow-x-auto">
+        <div class="min-w-28 flex flex-col items-center">
+            <img class="h-[100px] w-[100px] rounded-lg bg-gray-300 bg-muted-foreground/10" src="https://imusic.b-cdn.net/images/item/original/447/0602435357447.jpg?selena-gomez-revival-5-tracks-cd&class=scaled&v=1697033381"></img>
+            <div class="text-sm font-medium group-hover:underline">Album 1</div>
+        </div>
+    </div>
+</section>

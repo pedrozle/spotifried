@@ -9,10 +9,9 @@ public class MusicController(IMusicRepository musicRepository) : Controller
 
     private readonly IMusicRepository _musicRepository = musicRepository;
 
-    public IActionResult Index()
+    public IActionResult Album()
     {
-        var listMusic = _musicRepository.GetAllMusic();
-        return View(listMusic);
+        return View();
     }
 
     public IActionResult AddMusic()
@@ -30,7 +29,7 @@ public class MusicController(IMusicRepository musicRepository) : Controller
     [HttpPost]
     public IActionResult AddMusic(MusicModel music)
     {
-        if(!ModelState.IsValid) return View(music);
+        if (!ModelState.IsValid) return View(music);
         _musicRepository.AddMusic(music);
         return RedirectToAction(nameof(Index));
     }
