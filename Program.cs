@@ -4,6 +4,8 @@ using Spotifried.Helpers;
 using Spotifried.Helpers.Interfaces;
 using Spotifried.Repository;
 using Spotifried.Repository.Interfaces;
+using dotenv.net;
+using Spotifried.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,7 @@ builder.Services.AddEntityFrameworkSqlServer().AddDbContext<DatabaseContext>(o =
 builder.Services.AddScoped<IMusicRepository, MusicRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddHttpClient<SpotifyService>();
 
 builder.Services.AddScoped<ISessao, Session>();
 builder.Services.AddSession(o =>
@@ -21,6 +24,8 @@ builder.Services.AddSession(o =>
     o.Cookie.HttpOnly = true;
     o.Cookie.IsEssential = true;
 });
+
+DotEnv.Load();
 
 var app = builder.Build();
 

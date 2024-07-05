@@ -74,6 +74,6 @@ _[Ss]cripts
 *.ncrunchsolution
 *.dot[Cc]over
 
-# Folders
+.env
 devops/data
 .idea
