@@ -3,7 +3,7 @@
   ViewData["Title"] = "Início";
 }
 
-<section class="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[#1DB954] text-white">
+<section class="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[#179643] text-white">
   <div class="container px-4 md:px-6">
     <div class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
       <div class="flex flex-col justify-center space-y-4">
@@ -12,40 +12,45 @@
             Músicas Ilimitadas, podcasts, & mais.
           </h1>
           <p class="max-w-[600px] text-muted-foreground md:text-xl">
-            Discubra as melhores músicas, podcasts, e recomendações personalizadas para você.
+            Descubra as melhores músicas, podcasts, e recomendações personalizadas para você.
           </p>
         </div>
         <div class="flex flex-col gap-2 min-[400px]:flex-row">
-          <a class="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-[#1DB954] shadow transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+          <a class="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-[#179643] shadow transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             asp-area="" asp-controller="Login" asp-action="Login">
             Entrar
           </a>
-          <a class="inline-flex h-10 items-center justify-center rounded-md border border-input bg-[#1DB954] px-8 text-sm font-medium shadow-sm transition-colors hover:bg-[#1ed760] hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+          <a class="inline-flex h-10 items-center justify-center rounded-md border border-input bg-[#179643] px-8 text-sm font-medium shadow-sm transition-colors hover:bg-[#1ed760] hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             href="#details" rel="ugc">
             Descubra Mais
           </a>
         </div>
       </div>
-      @* <img src="https://placeholder.com/550" width="550" height="550" alt="Hero"
-        class="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square" /> *@
-        <div class="carousel-container">
-          <div class="carousel-slide">
-              <img class="object-cover" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4d/Queen_A_Night_At_The_Opera.png/220px-Queen_A_Night_At_The_Opera.png" alt="Slide 1">
-          </div>
-          <div class="carousel-slide">
-              <img class="object-cover" src="https://imusic.b-cdn.net/images/item/original/447/0602435357447.jpg?selena-gomez-revival-5-tracks-cd&class=scaled&v=1697033381" alt="Slide 2">
-          </div>
-          <div class="carousel-slide">
-              <img class="object-cover" src="https://m.media-amazon.com/images/I/91B7UIQ6xNL._UF1000,1000_QL80_.jpg" alt="Slide 3">
-          </div>
 
-          <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-          <a class="next" onclick="changeSlide(1)">&#10095;</a>
+      <div class="carousel-container">
+        <div class="carousel-slide">
+          <img class="object-cover"
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4d/Queen_A_Night_At_The_Opera.png/220px-Queen_A_Night_At_The_Opera.png"
+            alt="Slide 1">
+        </div>
+        <div class="carousel-slide">
+          <img class="object-cover"
+            src="https://imusic.b-cdn.net/images/item/original/447/0602435357447.jpg?selena-gomez-revival-5-tracks-cd&class=scaled&v=1697033381"
+            alt="Slide 2">
+        </div>
+        <div class="carousel-slide">
+          <img class="object-cover" src="https://m.media-amazon.com/images/I/91B7UIQ6xNL._UF1000,1000_QL80_.jpg"
+            alt="Slide 3">
+        </div>
+
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
       </div>
     </div>
   </div>
 </section>
-<section id="details" class="w-full py-12 md:py-24 lg:py-32 bg-muted">
+
+<section id="details" class="text-white bg-[#121212] w-full py-12 md:py-24 lg:py-32">
   <div class="container px-4 md:px-6">
     <div class="flex flex-col items-center justify-center space-y-4 text-center">
       <div class="space-y-2">
@@ -93,7 +98,8 @@
     </div>
   </div>
 </section>
-<section class="w-full py-12 md:py-24 lg:py-32 bg-[#1DB954] text-white">
+
+<section class="w-full py-12 md:py-24 lg:py-32 bg-[#179643] text-white">
   <div class="container px-4 md:px-6">
     <div class="flex flex-col items-center justify-center space-y-4 text-center">
       <div class="space-y-2">
@@ -140,7 +146,8 @@
     </div>
   </div>
 </section>
-<section class="w-full py-12 md:py-24 lg:py-32 border-t">
+
+<section class="text-white bg-[#121212] w-full py-12 md:py-24 lg:py-32 border-t">
   <div class="container px-4 md:px-6">
     <div class="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
       <div class="space-y-4">
@@ -149,7 +156,7 @@
           class="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
           Ouça em qualquer lugar, a qualquer hora.
         </h2>
-        <a class="inline-flex h-9 items-center justify-center rounded-md bg-[#1DB954] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#1ed760] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+        <a class="inline-flex h-9 items-center justify-center rounded-md bg-[#179643] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#1ed760] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           href="#" rel="ugc">
           Baixar
         </a>

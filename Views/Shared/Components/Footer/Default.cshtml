@@ -2,7 +2,8 @@
 
 @if (Model is null)
 {
-    <footer class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+    <footer
+        class="text-white bg-[#121212] flex flex-col justify-center gap-2 sm:flex-row h-20 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p class="text-xs text-muted-foreground">© 2024 Spotifried. Todos os direitos reservados.</p>
         <nav class="sm:ml-auto flex gap-4 sm:gap-6">
 
@@ -16,14 +17,17 @@
 
 @if (Model is not null)
 {
-    <footer class="border-t border-muted bg-gray-800 text-white px-4 py-4 sm:px-6 md:px-8 fixed bottom-0 w-full">
+    <footer
+        class="text-white bg-[#121212] flex flex-col justify-center text-white px-4 h-20 sm:px-6 md:px-8 fixed bottom-0 w-full">
         <div class="container mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <img src="https://imusic.b-cdn.net/images/item/original/447/0602435357447.jpg?selena-gomez-revival-5-tracks-cd&class=scaled&v=1697033381" width="50" height="50" alt="Album Cover"
-                    class="aspect-square rounded-md object-cover" />
+                <img src="https://imusic.b-cdn.net/images/item/original/447/0602435357447.jpg?selena-gomez-revival-5-tracks-cd&class=scaled&v=1697033381"
+                    width="50" height="50" alt="Album Cover" class="aspect-square rounded-md object-cover" />
                 <div>
-                    <a class="text-sm font-medium block" asp-controller="Music" asp-action="Music" asp-route-itemid="">Revival</a>
-                    <a class="text-sm text-muted-foreground" asp-controller="Music" asp-action="Artist" asp-route-itemid="">Selena Gomez</a>
+                    <a class="text-sm font-medium block" asp-controller="Music" asp-action="Music"
+                        asp-route-itemid="">Revival</a>
+                    <a class="text-sm text-muted-foreground" asp-controller="Music" asp-action="Artist"
+                        asp-route-itemid="">Selena Gomez</a>
                 </div>
             </div>
             <div class="flex items-center space-x-4">
