@@ -85,3 +85,11 @@ body {
 .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
 }
+
+.btn-type-search{
+  background-color: black;
+}
+
+.selected{
+  background-color: #1DB954;
+}

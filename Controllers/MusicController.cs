@@ -26,13 +26,36 @@ public class MusicController(IMusicRepository musicRepository, SpotifyService sp
     [HttpPost]
     public async Task<IActionResult> SearchParam()
     {
-        string termoPesquisa = Request.Form["searchInput"]!;
+        // string searchInput = Request.Form["searchInput"]!;
+        // string searchType = Request.Form["searchType"]!;
+        string searchType = "Tudo";
 
-        var response = _spotifyService.Search(termoPesquisa, "artist");
+        // searchType = searchType switch
+        // {
+        //     "Artista" => "artist",
+        //     "Album" => "album",
+        //     "Musica" => "track",
+        //     _ => "artist,album,track",
+        // };
+        // var json = await _spotifyService.Search(searchInput, searchType);
 
-        var json = JsonConvert.DeserializeObject<RootModel>(await response);
-        Console.WriteLine(json);
-        return View("Search", json);
+        // Write the string array to a new file named "WriteLines.txt".
+        // using (StreamWriter outputFile = new StreamWriter(Path.Combine(Directory.GetCurrentDirectory(), "WriteLines.json")))
+        // {
+        //     outputFile.WriteLine(json);
+        // }
+
+        var json =  await System.IO.File.ReadAllTextAsync(Path.Combine(Directory.GetCurrentDirectory(), "WriteLines.json"));
+
+        dynamic obj = searchType switch
+        {
+            "Artista" => JsonConvert.DeserializeObject<RootModelArtist>(json)!,
+            "Album" => JsonConvert.DeserializeObject<RootModelAlbum>(json)!,
+            "Musica" => JsonConvert.DeserializeObject<RootModelMusic>(json)!,
+            _ => JsonConvert.DeserializeObject<RootModelAll>(json)!
+        };
+
+        return View("Search", obj);
     }
 
 

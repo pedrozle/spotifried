@@ -27,6 +27,13 @@ $(document).ready(function () {
       },
     },
   });
+  $(".btn-type-search").on("click", function () {
+    // Remove a classe 'selected' de todos os botões
+    $(".btn-type-search").removeClass("selected");
+
+    // Adiciona a classe 'selected' ao botão clicado
+    $(this).addClass("selected");
+  });
 });
 
 let slideIndex = 0;
