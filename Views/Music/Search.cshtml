@@ -39,7 +39,31 @@
     @if (Model is not null)
     {
         <div class="w-full py-6">
-            
+            @foreach (var content in Model){
+                <h3 class="text-4xl font-bold mb-4">@content.name</h3>
+            <div class="grid md:grid-cols-4 lg:grid-cols-8 gap-4">
+                @foreach (var item in @Model.artists.items)
+                {
+                    <a class="cursor-pointer w-fit max-w-40  flex flex-col p-2 transition hover:bg-black rounded-lg p-2"
+                        asp-controller="Music" asp-action="Artist" asp-route-itemid="@item.id">
+                        <div class="w-[145px] h-[150px]">
+                            @if (item.images != null && item.images.Count > 0)
+                            {
+                                <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
+                                    src="@item.images[0].url" width="150" height="150" />
+                            }
+                            else
+                            {
+                                <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
+                                    src="https://placehold.co/150x150?text=@item.name" width="150" height="150" />
+                            }
+                        </div>
+                        <div class="text-lg font-medium group-hover:underline text-wrap">@item.name</div>
+                        <div class="text-sm font-medium group-hover:underline mt-1 text-gray-400">Artista</div>
+                    </a>
+                }
+            </div>
+            }
         </div>
     }
 
