@@ -1,4 +1,4 @@
-@model dynamic?
+@model List<dynamic>?
 @{
     ViewData["Title"] = "Álbum";
 }
@@ -11,8 +11,8 @@
                     class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1 mr-4 bg-[#121212] text-white"
                     placeholder="Buscar por artista, álbum, música..." type="text" />
                 <input type="hidden" id="searchType" name="searchType" value="Tudo">
-                <button id="searchButton" class="text-white bg-[#1DB954] btn py-2 px-3 rounded-lg" type="submit" asp-controller="Music"
-                    asp-action="SearchParam">
+                <button id="searchButton" class="text-white bg-[#1DB954] btn py-2 px-3 rounded-lg" type="submit"
+                    asp-controller="Music" asp-action="SearchParam">
                     Pesquisar
                 </button>
             </form>
@@ -39,31 +39,95 @@
     @if (Model is not null)
     {
         <div class="w-full py-6">
-            @foreach (var content in Model){
-                <h3 class="text-4xl font-bold mb-4">@content.name</h3>
-            <div class="grid md:grid-cols-4 lg:grid-cols-8 gap-4">
-                @foreach (var item in @Model.artists.items)
+            @foreach (var content in Model)
+            {
+                @if (@content.items[0].type == "track")
                 {
-                    <a class="cursor-pointer w-fit max-w-40  flex flex-col p-2 transition hover:bg-black rounded-lg p-2"
-                        asp-controller="Music" asp-action="Artist" asp-route-itemid="@item.id">
-                        <div class="w-[145px] h-[150px]">
-                            @if (item.images != null && item.images.Count > 0)
-                            {
-                                <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
-                                    src="@item.images[0].url" width="150" height="150" />
-                            }
-                            else
-                            {
-                                <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
-                                    src="https://placehold.co/150x150?text=@item.name" width="150" height="150" />
-                            }
-                        </div>
-                        <div class="text-lg font-medium group-hover:underline text-wrap">@item.name</div>
-                        <div class="text-sm font-medium group-hover:underline mt-1 text-gray-400">Artista</div>
-                    </a>
+                    <h3 class="text-4xl font-bold mb-4">Músicas</h3>
+
+                    <div class="flex overflow-x-auto gap-4 my-4">
+                        @foreach (var item in @content.items)
+                        {
+                            <a class="cursor-pointer w-fit max-w-40 flex flex-col p-2 transition hover:bg-black rounded-lg p-2"
+                                asp-controller="Music" asp-action="Music" asp-route-itemid="@item.id">
+                                <div class="w-[145px] h-[150px]">
+                                    @if (item.images != null && item.images.Count > 0)
+                                    {
+                                        <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
+                                            src="@item.album.images[0].url" width="150" height="150" />
+                                    }
+                                    else
+                                    {
+                                        <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
+                                            src="https://placehold.co/150x150?text=@item.name" width="150" height="150" />
+                                    }
+                                </div>
+                                <div class="text-lg font-medium group-hover:underline text-wrap">@item.name</div>
+                                <div class="text-sm font-medium group-hover:underline mt-1 text-gray-400">@item.album.artists[0].name
+                                </div>
+                            </a>
+                        }
+                    </div>
                 }
-            </div>
+                @if (@content.items[0].type == "album")
+                {
+                    <h3 class="text-4xl font-bold mb-4">Álbuns</h3>
+
+                    <div class="flex overflow-x-auto gap-4 my-4">
+                        @foreach (var item in @content.items)
+                        {
+                            <a class="cursor-pointer w-fit max-w-40 flex flex-col p-2 transition hover:bg-black rounded-lg p-2"
+                                asp-controller="Music" asp-action="Album" asp-route-itemid="@item.id">
+                                <div class="w-[145px] h-[150px]">
+                                    @if (item.images != null && item.images.Count > 0)
+                                    {
+                                        <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
+                                            src="@item.images[0].url" width="150" height="150" />
+                                    }
+                                    else
+                                    {
+                                        <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
+                                            src="https://placehold.co/150x150?text=@item.name" width="150" height="150" />
+                                    }
+                                </div>
+                                <div class="text-lg font-medium group-hover:underline text-wrap">@item.name</div>
+                                <div>
+                                    <p class="text-sm font-medium group-hover:underline mt-1 text-gray-400">@item.release_date</p>
+                                    <p class="text-sm font-medium group-hover:underline mt-1 text-gray-400">@item.artists[0].name</p>
+                                </div>
+                            </a>
+                        }
+                    </div>
+                }
+                @if (@content.items[0].type == "artist")
+                {
+                    <h3 class="text-4xl font-bold mb-4">Artistas</h3>
+
+                    <div class="flex overflow-x-auto gap-4 my-4">
+                        @foreach (var item in @content.items)
+                        {
+                            <a class="cursor-pointer w-fit max-w-40 flex flex-col p-2 transition hover:bg-black rounded-lg p-2"
+                                asp-controller="Music" asp-action="Album" asp-route-itemid="@item.id">
+                                <div class="w-[145px] h-[150px]">
+                                    @if (item.images != null && item.images.Count > 0)
+                                    {
+                                        <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
+                                            src="@item.images[0].url" width="150" height="150" />
+                                    }
+                                    else
+                                    {
+                                        <img class="rounded-lg bg-gray-300 bg-muted-foreground/10 object-cover w-[100%] h-[100%]"
+                                            src="https://placehold.co/150x150?text=@item.name" width="150" height="150" />
+                                    }
+                                </div>
+                                <div class="text-lg font-medium group-hover:underline text-wrap">@item.name</div>
+                                <div class="text-sm font-medium group-hover:underline mt-1 text-gray-400">@item.name</div>
+                            </a>
+                        }
+                    </div>
+                }
             }
+
         </div>
     }
 

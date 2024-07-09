@@ -47,15 +47,34 @@ public class MusicController(IMusicRepository musicRepository, SpotifyService sp
 
         var json =  await System.IO.File.ReadAllTextAsync(Path.Combine(Directory.GetCurrentDirectory(), "WriteLines.json"));
 
-        dynamic obj = searchType switch
-        {
-            "Artista" => JsonConvert.DeserializeObject<RootModelArtist>(json)!,
-            "Album" => JsonConvert.DeserializeObject<RootModelAlbum>(json)!,
-            "Musica" => JsonConvert.DeserializeObject<RootModelMusic>(json)!,
-            _ => JsonConvert.DeserializeObject<RootModelAll>(json)!
-        };
+        dynamic obj;
+        
+        List<dynamic> model = [];
 
-        return View("Search", obj);
+        switch (searchType)
+        {
+            case "Artista":
+                obj =  JsonConvert.DeserializeObject<RootModelArtist>(json)!;
+                model.Add(obj);
+                break;
+            case "Album":
+                obj =  JsonConvert.DeserializeObject<RootModelAlbum>(json)!;
+                model.Add(obj);
+                break;
+            case "Musica":
+                obj =  JsonConvert.DeserializeObject<RootModelMusic>(json)!;
+                model.Add(obj);
+                break;
+            default:
+                obj =  JsonConvert.DeserializeObject<RootModelAll>(json)!;
+                model.Add(obj.tracks);
+                model.Add(obj.albums);
+                model.Add(obj.artists);
+                break;
+        }
+
+
+        return View("Search", model);
     }
 
 
