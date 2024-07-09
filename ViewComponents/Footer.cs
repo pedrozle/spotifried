@@ -1,22 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using Spotifried.Models;
+using Spotifried.Models.ViewModels;
 
 namespace Spotifried.ViewComponents;
 
 public class Footer : ViewComponent
 {
 
-    public async Task<IViewComponentResult> InvokeAsync()
+    public async Task<IViewComponentResult> InvokeAsync(AudioModel? audio)
     {
-        string? session = HttpContext.Session.GetString(Globals.KEY);
-
-        if (session.IsNullOrEmpty()) return View(null);
-
-        UserModel? user = JsonConvert.DeserializeObject<UserModel>(session!);
-
-        return View(user);
+        return View(audio);
     }
 
 }
