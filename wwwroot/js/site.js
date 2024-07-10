@@ -66,3 +66,20 @@ function changeSlide(n) {
   }
   slides[slideIndex - 1].style.display = "block";
 }
+
+function playMusic(url) {
+  if (url == null || url.length == 0) {
+    console.log("erro");
+    return;
+  }
+  // Obter o elemento de áudio pelo ID
+  var audioElement = document.getElementById("audioReprodutor");
+  // Definir a URL da fonte de áudio
+  audioElement.src = url;
+
+  // Iniciar a reprodução
+  audioElement.play();
+
+  // Esconder o elemento de áudio
+  audioElement.style.display = "none";
+}
